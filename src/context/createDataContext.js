@@ -9,6 +9,7 @@ export default (reducer, actions, initialState) => {
     // Context Object
     const Context = React.createContext();
 
+    //Provider is kind of a generic component that we could use to manage many diff types of resources
     const Provider = ({ children }) => {
         const [state, dispatch] = useReducer(reducer, initialState);
         
