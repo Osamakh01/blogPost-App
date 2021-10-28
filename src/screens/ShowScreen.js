@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import {View, Text, StyleSheet } from 'react-native';
+import {View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { Context } from '../context/BlogContext';
+import { Entypo } from '@expo/vector-icons';
 
 const ShowScreen = ({ navigation }) => {
     const { state } = useContext(Context);
@@ -11,13 +12,27 @@ const ShowScreen = ({ navigation }) => {
     // variable i.e blogPost   
     
 
-
     return (
         <View>
             <Text>{blogPost.title}</Text>
+            <Text>{blogPost.content}</Text>
         </View>
     );
 };
+
+// anytime we want to show something inside of our header, we're goin underneath our component and add navigationOptions
+// this func is goin to return a configuration object thats goin to somehow customize our header.
+ShowScreen.navigationOptions =({ navigation }) => {
+    return {
+        headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate('Edit', { id: navigation.getParam('id') } )}>
+                <Entypo name='edit' size={24} style={{paddingRight: 2}} />    
+            </TouchableOpacity>
+        )
+
+    };
+};
+
 
 const styles= StyleSheet.create({
 

@@ -6,13 +6,15 @@ import { Provider } from './src/context/BlogContext'; /* curly braces becz we ex
 instead of using export default */ 
 import ShowScreen from './src/screens/ShowScreen';
 import CreateScreen from './src/screens/CreateScreen';
+import EditScreen from './src/screens/EditScreen';
 
 
 const navigator = createStackNavigator(
   {  // 2 arguments, 1st is app route configuration object
     Index: IndexScreen,
     Show: ShowScreen, 
-    Create: CreateScreen
+    Create: CreateScreen,
+    Edit: EditScreen,
   }, 
   {  // 2nd argument here, some configuration options for our stack navigator
     initialRouteName: 'Index',
